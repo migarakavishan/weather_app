@@ -42,7 +42,7 @@ class ApiHelper {
   }
 
   //weekly weather
-  static Future<WeeklyWeather> getWeeklyWeather() async {
+  static Future<WeeklyWeather> getWeeklyForecast() async {
     await fetchLocation();
     final url = _constructWeeklyWeatherUrl();
     final response = await _fetchData(url);
