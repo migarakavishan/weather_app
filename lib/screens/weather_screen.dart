@@ -23,7 +23,7 @@ class WeatherScreen extends ConsumerWidget {
               children: [
                 Text(weather.name, style: TextStyles.h1),
                 SizedBox(height: 20),
-                Text(DateTime.now().dateTime, style: TextStyles.subtitleText,),
+                Text(DateTime.now().dateTime, style: TextStyles.subtitleText),
                 SizedBox(height: 30),
                 SizedBox(
                   height: 260,
@@ -33,10 +33,18 @@ class WeatherScreen extends ConsumerWidget {
                 ),
                 SizedBox(height: 40),
                 Text(weather.weather[0].description, style: TextStyles.h2),
-                SizedBox(height: 40),
-                WeatherInfo(
-                  weather: weather,
-                ),
+              ],
+            ),
+            SizedBox(height: 40),
+            WeatherInfo(weather: weather),
+
+            SizedBox(height: 40),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Today", style: TextStyles.h2),
+                TextButton(onPressed: () {}, child: Text("View full forecast")),
               ],
             ),
           ],
