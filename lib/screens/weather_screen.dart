@@ -4,6 +4,7 @@ import 'package:weather_app/constants/text_styles.dart';
 import 'package:weather_app/extensions/datetime.dart';
 import 'package:weather_app/providers/current_weather_provider.dart';
 import 'package:weather_app/views/gradient_container.dart';
+import 'package:weather_app/views/hourly_forecast_view.dart';
 import 'package:weather_app/views/weather_info.dart';
 
 class WeatherScreen extends ConsumerWidget {
@@ -47,10 +48,14 @@ class WeatherScreen extends ConsumerWidget {
                 TextButton(onPressed: () {}, child: Text("View full forecast")),
               ],
             ),
+
+            SizedBox(height: 15),
+
+            HourlyForecastView(),
           ],
         );
       },
-      error: (error, StackTrace) {
+      error: (error, stsackTrace) {
         return Center(child: Text(error.toString()));
       },
       loading: () {
