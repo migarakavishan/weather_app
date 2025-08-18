@@ -24,11 +24,11 @@ class HourlyForecastView extends ConsumerWidget {
             itemBuilder: (context, index) {
               final forecast = hourlyWeather.list[index];
               return HourlyForcastTile(
-                  id: forecast.weather[0].id,
-                  hour: forecast.dt.time,
-                  temp: forecast.main.temp.round(),
-                  isActive: index == 0,
-                );
+                id: forecast.weather[0].id,
+                hour: forecast.dt.time,
+                temp: forecast.main.temp.round(),
+                isActive: index == 0,
+              );
             },
           ),
         );
@@ -42,7 +42,6 @@ class HourlyForecastView extends ConsumerWidget {
     );
   }
 }
-
 
 class HourlyForcastTile extends StatelessWidget {
   const HourlyForcastTile({
@@ -61,43 +60,25 @@ class HourlyForcastTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        right: 16,
-        top: 12,
-        bottom: 12,
-      ),
+      padding: const EdgeInsets.only(right: 16, top: 12, bottom: 12),
       child: Material(
         color: isActive ? AppColors.lightBlue : AppColors.accentBlue,
         borderRadius: BorderRadius.circular(15.0),
         elevation: isActive ? 8 : 0,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 10,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
-                getWeatherIcon(weatherCode: id),
-                width: 50,
-              ),
+              Image.asset(getWeatherIcon(weatherCode: id), width: 50),
               const SizedBox(width: 10),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    hour,
-                    style: const TextStyle(
-                      color: AppColors.white,
-                    ),
-                  ),
+                  Text(hour, style: const TextStyle(color: AppColors.white)),
                   const SizedBox(height: 5),
-                  Text(
-                    '$temp°',
-                    style: TextStyles.h3,
-                  ),
+                  Text('$temp°', style: TextStyles.h3),
                 ],
               ),
             ],
